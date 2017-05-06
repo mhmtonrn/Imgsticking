@@ -33,7 +33,7 @@ ranslation = fliplr(-translation);
 %% Stitch the two images together based on the computed translation
 % First pad the left and right images based on the translation, then stitch
 % them together.
-comb = cat(3, padarray(left, abs(translation), 'post'), padarray(right, abs(translation), 'pre'));
+comb = cat(3, padarray(left, translation, 'post'), padarray(right, translation, 'pre'));
 stitched = sum(comb,3)./sum(comb~=0, 3);
 
 % Save the stitched image as a .mat file that can be loaded into MATLAB or
